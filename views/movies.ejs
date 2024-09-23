@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css"> 
+    <title>Movie List</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie List</h1>
+        <ul class="movie-list">
+            <% movies.forEach(movie => { %>
+                <li class="movie-item">
+                    <h2><%= movie.title %></h2>
+                    <p>Director: <%= movie.director %></p>
+                    <p>Year: <%= movie.year %></p>
+                    <img src="<%= movie.logo %>" alt="<%= movie.title %> Logo" width="300">
+                    <a href="/api/get/<%= movie.id %>" class="button">Details</a> 
+                </li>
+            <% }) %>
+        
+        </ul>
+     
+   
+    </div>
+</body>
+</html>
+
