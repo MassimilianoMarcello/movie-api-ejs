@@ -1,4 +1,4 @@
-import findMovie from '../utils/find.movie.js';
+import findMovie from '../utils/findmovie.js';
 
 const movies = [
     {
@@ -37,10 +37,10 @@ class Movie {
     static updateMovie = (id, movie) => {
         const movieExist = findMovie(id, movies);
         if (movieExist) {
-            (movieExist.title = movie.title),
-                (movieExist.director = movie.director),
-                (movieExist.year = movie.year),
-                (movieExist.logo = movie.logo);
+            movieExist.title = movie.title,
+            movieExist.director = movie.director,
+                movieExist.year = movie.year,
+                movieExist.logo = movie.logo;
             return movies;
         } else {
             return null;
