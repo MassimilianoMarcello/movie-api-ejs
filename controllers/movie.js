@@ -9,7 +9,7 @@ const controllers={
 
     },
     getMovieById: (req, res) => {
-        const { id } = req.params; 
+        const id = req.query.id || req.params.id; 
         const movie = Movie.getMovieById(id); 
         if (movie) {
             res.status(200).render('movieDetails', { movie }); 
@@ -20,6 +20,17 @@ const controllers={
             });
         }
     },
+    getUpdateForm: (req, res) => {
+        const { id } = req.params;
+        const movie = Movie.getMovieById(id);
+        
+        if (movie) {
+            res.render('updateMovieForm', { movie });
+        } else {
+            res.status(404).render('404', { message: 'Movie not found' });
+        }
+    },
+    
     addMovie:(req,res)=>{},
     updateMovie:(req,res)=>{},
     deleteMovie:(req,res)=>{},

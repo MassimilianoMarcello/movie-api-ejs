@@ -7,8 +7,12 @@
     <title>Movie List</title>
 </head>
 <body>
+    <%- include('include/nav') %>
+    <%- include('include/updateForm') %>
     <div class="container">
+      
         <h1>Movie List</h1>
+      
         <ul class="movie-list">
             <% movies.forEach(movie => { %>
                 <li class="movie-item">

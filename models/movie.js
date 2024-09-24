@@ -28,12 +28,14 @@ class Movie {
         return movies;
     };
     static getMovieById = (id) => {
-        return findMovie(id, movies);
+        return findMovie(movies,id);
     };
     static addMovie = (movie) => {
         movies.push(movie);
         return movies;
     };
+
+    
     static updateMovie = (id, movie) => {
         const movieExist = findMovie(id, movies);
         if (movieExist) {

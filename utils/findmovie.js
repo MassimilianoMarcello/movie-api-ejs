@@ -1,4 +1,4 @@
-const findMovie=(id,movies)=>{
+const findMovie=(movies,id)=>{
     return movies.find((movie) => movie.id === parseInt(id));
 }
 
