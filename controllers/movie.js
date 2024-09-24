@@ -30,6 +30,25 @@ const controllers={
             res.status(404).render('404', { message: 'Movie not found' });
         }
     },
+    updateMovie: (req, res) => {
+        const { id } = req.params;
+        const updatedMovie = {
+            title: req.body.title,
+            director: req.body.director,
+            year: req.body.year,
+            logo: req.body.logo
+        };
+        const movie = Movie.updateMovie(parseInt(id), updatedMovie);
+        if (movie) {
+            res.redirect(`/get/${id}`); 
+        } else {
+            res.status(404).render('404', {
+                title: '404 Page',
+                message: 'Movie not found'
+            });
+        }
+    },
+    
     
     addMovie:(req,res)=>{},
     updateMovie:(req,res)=>{},

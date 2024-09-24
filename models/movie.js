@@ -36,21 +36,22 @@ class Movie {
     };
 
     
-    static updateMovie = (id, movie) => {
-        const movieExist = findMovie(id, movies);
-        if (movieExist) {
-            movieExist.title = movie.title,
-            movieExist.director = movie.director,
-                movieExist.year = movie.year,
-                movieExist.logo = movie.logo;
-            return movies;
-        } else {
-            return null;
+    static updateMovie = (id, updatedData) => {
+        const movie = findMovie(movies, id);
+        if (movie) {
+            // Aggiorna solo i campi che sono stati forniti
+            movie.title = updatedData.title || movie.title;
+            movie.director = updatedData.director || movie.director;
+            movie.year = updatedData.year || movie.year;
+            movie.logo = updatedData.logo || movie.logo;
+            return movie; // Restituisce il film aggiornato
         }
+        return null; // Film non trovato
     };
+}
     // deleteMovie = () => {
 
     // };
-}
+
 
 export default Movie
