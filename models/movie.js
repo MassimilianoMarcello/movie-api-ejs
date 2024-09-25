@@ -49,12 +49,12 @@ class Movie {
         return null; // film did not find
     };
     static deleteMovie = (id) => {
-        const index = movies.findIndex(movie => movie.id === id);
+        const index = movies.findIndex(movie => movie.id === parseInt(id));
         if (index !== -1) {
-            movies.splice(index, 1); // Rimuove il film dall'array
-            return true; // Restituisce true se il film è stato eliminato
+            movies.splice(index, 1); // Remove movie from the array
+            return true; // Movie removed successfully = true
         }
-        return false; // Restituisce false se il film non è stato trovato
+        return false; // movie not found
     };
 }
 

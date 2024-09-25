@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Movie</title>
-    <link rel="stylesheet" href="/path-to-your-css/style.css"> <!-- Aggiungi il percorso del tuo file CSS -->
+    <link rel="stylesheet" href="/css/style.css"> 
 </head>
 <body>
     <h1>Update Movie: <%= movie.title %></h1>
     <form action="/api/update/<%= movie.id %>" method="POST" class="update-form">
-        <input type="hidden" name="_method" value="PUT"> <!-- Metodo PUT con override -->
+        <input type="hidden" name="_method" value="PUT"> 
         <input type="hidden" name="id" value="<%= movie.id %>">
 
         <label for="title">Title:</label>

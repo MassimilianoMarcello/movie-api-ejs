@@ -20,6 +20,8 @@ router.get('/add', getAddMovieForm);
 router.post('/add', addMovie);
 router.get('/update/:id', getUpdateForm);
 router.post('/update/:id', updateMovie);
-router.delete('/delete/:id', deleteMovie);
+
+router.delete('/delete/:id', deleteMovie); 
+
 
 export default router;

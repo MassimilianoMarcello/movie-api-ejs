@@ -65,9 +65,11 @@ const controllers={
 
     deleteMovie: (req, res) => {
         const { id } = req.params;
-        const movieDeleted = Movie.deleteMovie(parseInt(id)); // Assicurati di implementare deleteMovie nel modello
-        if (movieDeleted) {
-            res.redirect('/api/get'); // Reindirizza alla lista dei film dopo l'eliminazione
+        const movieExists = Movie.getMovieById(id); // ceck if movie exist
+    
+        if (movieExists) { 
+            Movie.deleteMovie(id);      // Use the model static  function      for deleting     
+            res.redirect('/api/get'); // Redirect after deleting
         } else {
             res.status(404).render('404', {
                 title: '404 Page',
