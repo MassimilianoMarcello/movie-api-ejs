@@ -8,17 +8,18 @@ const {
     addMovie,
     updateMovie,
     deleteMovie,
-    getUpdateForm
+    getUpdateForm,
+    getAddMovieForm
 } = controllers;
 
 // routes
 router.get('/get', getMovies);
 router.get('/get/:id', getMovieById);
 router.get('/getById', getMovieById);
+router.get('/add', getAddMovieForm); 
 router.post('/add', addMovie);
 router.get('/update/:id', getUpdateForm);
 router.post('/update/:id', updateMovie);
-
 router.delete('/delete/:id', deleteMovie);
 
 export default router;

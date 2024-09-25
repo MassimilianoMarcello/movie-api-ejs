@@ -15,10 +15,19 @@
         <img src="<%= movie.logo %>" alt="<%= movie.title %> Logo" width="400">
       
          <div class="button-container">  <a href="/api/get" class="button">Movie List</a></div>
+         <div class="button-container">  <a href="/api/update/<%= movie.id %>" class="button">Update Movie</a></div>
+         <div class="button-container">
+            <form action="/api/delete/<%= movie.id %>" method="POST" class="delete-form">
+                <input type="hidden" name="_method" value="DELETE"> 
+                <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare questo film?');">Delete Movie</button>
+            </form>
+        </div>
+        
+        
       
       
     </div>
-    <div class="form-container"> <%- include('include/updateForm') %></div>
+   
   
       
       

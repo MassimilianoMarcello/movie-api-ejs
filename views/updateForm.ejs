@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Movie</title>
+    <link rel="stylesheet" href="/path-to-your-css/style.css"> <!-- Aggiungi il percorso del tuo file CSS -->
+</head>
+<body>
+    <h1>Update Movie: <%= movie.title %></h1>
+    <form action="/api/update/<%= movie.id %>" method="POST" class="update-form">
+        <input type="hidden" name="_method" value="PUT"> <!-- Metodo PUT con override -->
+        <input type="hidden" name="id" value="<%= movie.id %>">
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%= movie.title %>" required>
+
+        <label for="director">Director:</label>
+        <input type="text" id="director" name="director" value="<%= movie.director %>" required>
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" value="<%= movie.year %>" required>
+
+        <label for="logo">Logo URL:</label>
+        <input type="url" id="logo" name="logo" value="<%= movie.logo %>" required>
+
+        <button type="submit">Update Movie</button>
+    </form>
+</body>
+</html>

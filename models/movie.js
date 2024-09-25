@@ -39,19 +39,25 @@ class Movie {
     static updateMovie = (id, updatedData) => {
         const movie = findMovie(movies, id);
         if (movie) {
-            // Aggiorna solo i campi che sono stati forniti
+            // uptate on fulled fields
             movie.title = updatedData.title || movie.title;
             movie.director = updatedData.director || movie.director;
             movie.year = updatedData.year || movie.year;
             movie.logo = updatedData.logo || movie.logo;
-            return movie; // Restituisce il film aggiornato
+            return movie; // update movie rendered
         }
-        return null; // Film non trovato
+        return null; // film did not find
+    };
+    static deleteMovie = (id) => {
+        const index = movies.findIndex(movie => movie.id === id);
+        if (index !== -1) {
+            movies.splice(index, 1); // Rimuove il film dall'array
+            return true; // Restituisce true se il film è stato eliminato
+        }
+        return false; // Restituisce false se il film non è stato trovato
     };
 }
-    // deleteMovie = () => {
 
-    // };
 
 
 export default Movie
